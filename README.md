@@ -1,6 +1,6 @@
 ## Yellow Page Crawler
  
-> It is aiming to get a list of [organizations]() in Madagascar along with their activity, address and contact from the [Yellow Page Africa](https://www.yellowpagesofafrica.com/). \
+> It is aiming to get a list of [organizations](https://github.com/naivomah3/yellowpage-harvesting/blob/master/yellow-page-data.csv) in Madagascar along with their activity, address and contact from the [Yellow Page Africa](https://www.yellowpagesofafrica.com/). \
 > I made this script to help a friend of mine who has recently set up his own startup on the business call campaign. \
 \
 > WARNING: 
@@ -62,7 +62,7 @@ pip install scrapy-proxy-pool
 ```
 ## Usage: 
 Before running this command, make sure that the Docker container has run successfully. Go to the current project and run the following command. The output will be available in the generated `yellow-page-data.csv`. 
-Have a look at the sample available [here]()
+Have a look at the sample available [here](https://github.com/naivomah3/yellowpage-harvesting/blob/master/yellow-page-data.csv)
 ```shell
 scrapy crawl pga -o yellow-page-data.csv
 ```
