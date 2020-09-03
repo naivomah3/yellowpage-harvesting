@@ -61,12 +61,12 @@ pip install scrapy-proxy-pool
 #....
 ```
 ## Usage: 
-Before running this command, make sure that the Docker container has run successfully. Go to the current project and run the following command. The output will be available in the generated `yellow-page-data.csv`. 
+Before running this command, make sure that the Docker container has run successfully. Go to the current project and run the following command. The output will be generated as a CSV file  [`yellow-page-data.csv`](https://github.com/naivomah3/yellowpage-harvesting/blob/master/yellow-page-data.csv). 
 Take a look at the scrapped data sample having 4000+ organizations available [here](https://github.com/naivomah3/yellowpage-harvesting/blob/master/yellow-page-data.csv)
 ```shell
 scrapy crawl pga -o yellow-page-data.csv
 ```
-To generate your own spider, use the following command. For more detail, use the [documentation](https://docs.scrapy.org/en/latest/topics/commands.html) 
+To generate your own spider, use the following command. For more details, use the [documentation](https://docs.scrapy.org/en/latest/topics/commands.html) 
 ```shell
 scrapy genspider yourspider yourdomain.com
 ```
