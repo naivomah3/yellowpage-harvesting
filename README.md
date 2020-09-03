@@ -20,7 +20,7 @@ sudo docker pull scrapinghub/splash
 # Run the container
 sudo docker run -p 8050:8050 scrapinghub/splash
 ```
-In order to use Splash in `pga.py` spider script, the following settings has to be in `settings.py`
+In order to use Splash in `pga.py` spider script, the following settings have to be in the `settings.py`
 ```python
 DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashCookiesMiddleware': 723,
