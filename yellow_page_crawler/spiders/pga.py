@@ -59,14 +59,19 @@ class PgaSpider(Spider):
             './/*[contains(@class, "ct-product--description")]'
         )
         company_contacts = response.xpath(
-            './/div[contains(@id, "coordonnees")]')
+            './/div[contains(@id, "coordonnees")]'
+        )
+        company_websites = response.xpath(
+            './/*[contains(concat( " ", @class, " " ), concat( " ", "ct-product--description", " " ))]//a'
+        )
 
-        for (name, addr, contact) in zip(company_names, company_addrs, company_contacts):
+        for (name, addr, contact, website) in zip(company_names, company_addrs, company_contacts, company_websites):
             items = ItemLoader(item=YellowPageCrawlerItem())
 
             # Activity denomination
             activity_name = activity.extract_first()
             items.add_value('activity', activity_name)
+
             # Name of the entity
             company_name = name.xpath(
                 'normalize-space(./text())').extract_first()
@@ -76,11 +81,13 @@ class PgaSpider(Spider):
             items.add_value('address', address)
             # Contact = Mail + Phone
             contact = contact.css('::text').getall()
-
             # Phone
             items.add_value('phone', contact)
             # Mail
             items.add_value('mail', contact)
+            # Website
+            company_website = website.css('::text').getall()
+            items.add_value('website', company_website)
 
             yield items.load_item()
 

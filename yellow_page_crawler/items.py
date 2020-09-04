@@ -21,6 +21,17 @@ def get_mail(mail_str):
     return mail
 
 
+def get_website(site_str):
+    # website_str = ' '.join(site_str)
+    regex = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
+    url = re.findall(regex, site_str)
+    return url
+
+
+def clean_website(site_tuple):
+    return ' '.join(site_tuple)
+
+
 class YellowPageCrawlerItem(scrapy.Item):
     # define the fields for your item here like:
     activity = scrapy.Field()
@@ -36,4 +47,8 @@ class YellowPageCrawlerItem(scrapy.Item):
     phone = scrapy.Field(
         input_processor=MapCompose(get_phone),
         output_processor=Join(' ')
+    )
+    website = scrapy.Field(
+        input_processor=MapCompose(get_website),
+        output_processor=MapCompose(clean_website)
     )
