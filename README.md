@@ -13,6 +13,10 @@ This is an implementation of a Python [Scrapy](https://scrapy.org/) web crawler 
 
 
 ```bash
+# For conda user 
+conda install -c conda-forge scrapy
+# Or using pip 
+pip install Scrapy
 # Install Splash using pip 
 pip install scrapy-splash
 # Pull the image 
@@ -36,10 +40,14 @@ DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 ```
 
-(**Optional**) Depending on the situation, basic page restriction can be bypassed using the following packages along with their settings. They can be used together or separately as they are already having different priority id but make sure to put in the `DOWNLOADER_MIDDLEWARES` section the corresponding settings. 
+(**Optional**) Depending on the scenario, basic page restriction can be bypassed using the following packages along with their settings. They can be used together or separately as they already have different and unique priority values but make sure to put in the `DOWNLOADER_MIDDLEWARES` section the corresponding settings. 
 
+- The simplest way to legit requests towards the website is to change the User-Agent. This can be done statically in `settings.py` file by initializing this parameter. 
+```python 
+USER_AGENT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+```
 
-- To use the `scrapy-user-agents`, install it via `pip` and add the following settings in `DOWNLOADER_MIDDLEWARES` section
+- [`scrapy-user-agents`](https://pypi.org/project/scrapy-fake-useragent/) can be used to automate picking a random User-Agent from a pull of pre-defined user agent. Install it via `pip` and add the following settings in `DOWNLOADER_MIDDLEWARES` section
 ```bash 
 pip install scrapy-user-agents
 ```
@@ -50,7 +58,7 @@ pip install scrapy-user-agents
 #....
 ```
 
-- To use the `scrapy-proxy-pool`, install it via `pip` and add the following settings in the `DOWNLOADER_MIDDLEWARES` section
+- [`scrapy-proxy-pool`](https://pypi.org/project/scrapy-proxy-pool/) can also be used to skirt firewall rules by the use of Proxies. Install it via `pip` and add the following settings in the `DOWNLOADER_MIDDLEWARES` section
 ```bash 
 pip install scrapy-proxy-pool
 ```
@@ -60,14 +68,14 @@ pip install scrapy-proxy-pool
 'scrapy_proxy_pool.middlewares.BanDetectionMiddleware': 620,
 #....
 ```
-## Usage: 
+## Usage 
 Before running this command, make sure that the Docker container has run successfully. Go to the current project and run the following command. The output will be generated as a CSV file  [`yellow-page-data.csv`](https://github.com/naivomah3/yellowpage-harvesting/blob/master/yellow-page-data.csv). 
 Take a look at the scrapped data sample having 4000+ organizations available [here](https://github.com/naivomah3/yellowpage-harvesting/blob/master/yellow-page-data.csv)
-```shell
+```bash
 scrapy crawl pga -o yellow-page-data.csv
 ```
 To generate your own spider, use the following command. For more details, use the [documentation](https://docs.scrapy.org/en/latest/topics/commands.html) 
-```shell
+```bash
 scrapy genspider yourspider yourdomain.com
 ```
 
