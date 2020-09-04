@@ -9,7 +9,7 @@
 
 ## Installation
 
-This is an implementation of a Python [Scrapy](https://scrapy.org/) web crawler in which I use [Splash](https://splash.readthedocs.io/en/stable/index.html) to load and render Javascript embedded on pages and [Docker](https://www.docker.com/) container as a middleware serving the **fully rendered**(includes the necessary javascript events embedded on different components) pages. 
+This is an implementation of a Python [Scrapy](https://scrapy.org/) web crawler in which I use [Splash](https://splash.readthedocs.io/en/stable/index.html) to load and render Javascript embedded on pages and [Docker](https://www.docker.com/) container as a middleware serving the **fully rendered**(includes the necessary javascript events embedded within the different components) pages. 
 
 
 ```bash
