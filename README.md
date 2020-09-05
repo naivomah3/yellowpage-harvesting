@@ -48,7 +48,7 @@ HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 USER_AGENT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 ```
 
-- [`scrapy-user-agents`](https://pypi.org/project/scrapy-fake-useragent/) can be used to automate picking a random User-Agent from a pull of pre-defined user agent. Install it via `pip` and add the following settings in `DOWNLOADER_MIDDLEWARES` section
+- [`scrapy-user-agents`](https://pypi.org/project/scrapy-fake-useragent/) can be used to automate picking a random User-Agent from a pool of pre-defined user agent. Install it via `pip` and add the following settings in `DOWNLOADER_MIDDLEWARES` section
 ```bash 
 pip install scrapy-user-agents
 ```
@@ -59,7 +59,7 @@ pip install scrapy-user-agents
 #....
 ```
 
-- [`scrapy-proxy-pool`](https://pypi.org/project/scrapy-proxy-pool/) can also be used to skirt firewall rules by the use of Proxies. Install it via `pip` and add the following settings in the `DOWNLOADER_MIDDLEWARES` section
+- [`scrapy-proxy-pool`](https://pypi.org/project/scrapy-proxy-pool/) can also be used to skirt firewall rules via a pool of pre-defined random Proxies. Install it via `pip` and add the following settings in the `DOWNLOADER_MIDDLEWARES` section
 ```bash 
 pip install scrapy-proxy-pool
 ```
